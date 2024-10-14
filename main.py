@@ -22,8 +22,6 @@ target_y = random.randint(0, SCREEN_HEIGHT - target_height)
 color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
 score = 0
-game_time = 30
-start_time = time.time()
 
 font = pygame.font.Font(None, 36)
 
@@ -51,7 +49,6 @@ while running:
 
     score_text = font.render(f"Score: {score}", True, (255,255,255))
     screen.blit(score_text, (10,10))
-
 
     pygame.display.update()
 
