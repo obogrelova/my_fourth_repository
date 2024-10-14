@@ -15,7 +15,6 @@ pygame.display.set_icon(icon)
 target_img = pygame.image.load("img/target.png")
 target_width = 80
 target_height = 82
-hit_sound = pygame.mixer.Sound("sounds/hit.wav")
 
 target_x = random.randint(0, SCREEN_WIDTH - target_width)
 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
@@ -30,11 +29,6 @@ font = pygame.font.Font(None, 36)
 
 running = True
 while running:
-    elapsed_time = time.time() - start_time
-    remaining_time = max(0, game_time - elapsed_time)
-
-    if remaining_time == 0:
-        running = False
 
     screen.fill(color)
 
@@ -52,18 +46,14 @@ while running:
 
                 color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
-                hit_sound.play()
 
     screen.blit(target_img, (target_x, target_y))
 
     score_text = font.render(f"Score: {score}", True, (255,255,255))
     screen.blit(score_text, (10,10))
 
-    time_text = font.render(f"Time: {int(remaining_time)}", True, (255,255,255))
-    screen.blit(time_text, (SCREEN_WIDTH - 150,10))
 
     pygame.display.update()
 
 pygame.quit()
 
-print(f"Игра окончена! Ваш счет: {score}")
