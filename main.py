@@ -26,7 +26,6 @@ font = pygame.font.Font(None, 36)
 
 running = True
 while running:
-
     screen.fill(color)
 
     for event in pygame.event.get():
@@ -42,7 +41,6 @@ while running:
                 score += 1
 
                 color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
 
     screen.blit(target_img, (target_x, target_y))
 
